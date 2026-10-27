@@ -51,7 +51,7 @@ def unsubscribe(ws, channel):
 
 
 def create_ticker_connection(symbol, url, channel):
-    ws = create_connection(url, sslopt={"cert_reqs": ssl.CERT_NONE}, header={'Content-Type': 'application/msgpack'})
+    ws = create_connection(url, sslopt={"cert_reqs": ssl.CERT_REQUIRED}, header={'Content-Type': 'application/msgpack'})
     _, auth = load_auth('alpaca')
 
     ws.send(msgpack.packb({
